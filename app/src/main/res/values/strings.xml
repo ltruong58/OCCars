@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">OC Cars</string>
+    <string name="instruction_text">Enter car purchase information</string>
+    <string name="label_payment_text">What is your cash down payment?</string>
+    <string name="label_price_text">What is the price of your car?</string>
+    <string name="three_years_text">3 years</string>
+</resources>
