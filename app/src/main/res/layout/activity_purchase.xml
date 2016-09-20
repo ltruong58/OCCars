@@ -90,26 +90,28 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
         android:textAlignment="center"
-        android:id="@+id/loanTermRadioGroup">
+        android:id="@+id/loanTermRadioGroup"
+        android:background="#573030">
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/three_years_text"
             android:id="@+id/threeYearsRadioButton"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:checked="true" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New RadioButton"
+            android:text="@string/four_years_text"
             android:id="@+id/fourYearsRadioButton"
             android:layout_gravity="center" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New RadioButton"
+            android:text="@string/five_years_text"
             android:id="@+id/fiveYearsRadioButton"
             android:layout_gravity="center" />
     </RadioGroup>

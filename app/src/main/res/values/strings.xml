@@ -26,12 +26,12 @@
 </string>
     <string name="report_line2">\n\tCar Sticker Price: $</string>
     <string name="report_line3">\n\tYou will put down: $</string>
-    <string name="report_line4">\n\tLoan Term is</string>
+    <string name="report_line4">\n\n\tLoan Term is </string>
     <string name="report_line5">\n\tTaxed Amt: $</string>
     <string name="report_line6">\n\tYour Cost: $</string>
     <string name="report_line7">\n\tBorrowed Amount: $</string>
     <string name="report_line8">\n\tInterest Amount: $</string>
-    <string name="report_line9">\nNOTE:</string>
+    <string name="report_line9">\n\nNOTE:</string>
 <string name="report_line10">
 \n\n1. Loan information is made available by OC Cars.
 </string>
@@ -41,4 +41,6 @@
 <string name="report_line12">
 \n\n3. Vehicles are financed at an annual interest rate of 9%.\n\n
 </string>
+    <string name="four_years_text">4 years</string>
+    <string name="five_years_text">5 years</string>
 </resources>

@@ -34,19 +34,14 @@ public class Car {
         this.mDownPayment = mDownPayment;
     }
 
-    public int getLoanTerm() {
-        return mLoanTerm;
+    public String getLoanTerm() {
+        return " " + String.valueOf(mLoanTerm) + " years.";
     }
 
     public void setLoanTerm(int mLoanTerm) {
         this.mLoanTerm = mLoanTerm;
     }
 
-    public String monthlyPayment()
-    {
-        String s = "";
-        return s;
-    }
     public double calculateBorrowedAmount()
     {
         return mPrice - mDownPayment + calculateTaxAmount();

@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 public class PurchaseActivity extends AppCompatActivity {
 
     private EditText carPriceEditText;
@@ -18,6 +21,9 @@ public class PurchaseActivity extends AppCompatActivity {
     private Car currentCar;
 
     private String monthlyPaymentText, loanSummaryText;
+    DecimalFormat myNumber = new DecimalFormat("0.00");
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +32,8 @@ public class PurchaseActivity extends AppCompatActivity {
         carPriceEditText = (EditText) findViewById(R.id.priceEditText);
         downPaymentEditText = (EditText) findViewById(R.id.paymentEditText);
         threeYearsRadioButton = (RadioButton) findViewById(R.id.threeYearsRadioButton);
-        threeYearsRadioButton = (RadioButton) findViewById(R.id.threeYearsRadioButton);
-        threeYearsRadioButton = (RadioButton) findViewById(R.id.threeYearsRadioButton);
+        fourYearsRadioButton = (RadioButton) findViewById(R.id.fourYearsRadioButton);
+        fiveYearsRadioButton = (RadioButton) findViewById(R.id.fiveYearsRadioButton);
 
         currentCar = new Car();
     }
@@ -49,7 +55,7 @@ public class PurchaseActivity extends AppCompatActivity {
 
         int loanTerm;
 
-        if(fiveYearsRadioButton.isChecked())
+       if(fiveYearsRadioButton.isChecked())
             loanTerm = 5;
         else if (fourYearsRadioButton.isChecked())
             loanTerm = 4;
@@ -59,6 +65,8 @@ public class PurchaseActivity extends AppCompatActivity {
         currentCar.setPrice(price);
         currentCar.setDownPayment(downPayment);
         currentCar.setLoanTerm(loanTerm);
+
+        constructLoanSummaryText();
 
         // Create the Intent to share data with LoanSummaryActivity
         Intent loanSummaryIntent = new Intent(this, LoanSummaryActivity.class);
@@ -70,7 +78,17 @@ public class PurchaseActivity extends AppCompatActivity {
     }
 
     private void constructLoanSummaryText(){
-        monthlyPaymentText = getString(R.string.report_line1) + currentCar.monthlyPayment();
-        loanSummaryText = getString(R.string.report_line2) + currentCar.getPrice();
+        monthlyPaymentText = getString(R.string.report_line1) + myNumber.format(currentCar.calculateMonthlyPayment());
+        loanSummaryText = String.format(getString(R.string.report_line2) +  myNumber.format(currentCar.getPrice()))
+        + getString(R.string.report_line3) + myNumber.format(currentCar.getDownPayment())
+        + getString(R.string.report_line5) + myNumber.format(currentCar.calculateTaxAmount())
+        + getString(R.string.report_line6) + myNumber.format(currentCar.calculateTotalAmount())
+        + getString(R.string.report_line7) + myNumber.format(currentCar.calculateBorrowedAmount())
+        + getString(R.string.report_line8) + myNumber.format(currentCar.calculateInterestAmount())
+        + getString(R.string.report_line4) + currentCar.getLoanTerm()
+        + getString(R.string.report_line9)
+        + getString(R.string.report_line10)
+        + getString(R.string.report_line11)
+        + getString(R.string.report_line12);
     }
 }
